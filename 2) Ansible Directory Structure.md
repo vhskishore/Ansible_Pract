@@ -16,3 +16,21 @@
     vi /etc/ansible/ansible.cfg
     inventory = <location of inventory file>
     ```
+- Create custom host file with name myhosts add IP/FQDN to it and add following line in /etc/ansible/ansible.cfg
+    ```
+    vi /etc/ansible/ansible.cfg
+    vi /etc/ansible/ansible.cfg
+    inventory = /ansadmin/inventory/myhosts
+    ```
+- Suppose many people are working on same ansible location. To avoid confussion create own ansible directory
+    ```
+    cd my_ansible
+    cp -rpP /etc/ansible/*
+    vi inventory ( add all FQDN/IP to it)
+    vi /my_ansible/ansible.cfg
+    inventory = /my_ansible/inventory
+    ```
+- If we have different inventory files like inventory1 and inventory2, If I want to work with these inventories without updating in ansible.cfg file then manction
+    ```
+    ansible all -m ping -i <inventory location>
+    ```
