@@ -6,6 +6,21 @@
 - Master master Unix like based systems.
 - We can select Windows or Linux servers for Ansible Nodes/Clients.
 
+*** Ansible version 2.4 and later can manage earlier operating systems that contain Python 2.5 or higher.
+
+### We can install Ansible in three ways.
+ - Using YUM
+ - Using pip
+ - Using compile file
+
+### Steps to install Ansible on Ubuntu
+```
+    sudo apt update
+    sudo apt install software-properties-common
+    sudo add-apt-repository --yes --update ppa:ansible/ansible
+    sudo apt install ansible
+```
+
 ### Steps to configure Ansible
  - Launch/select required number of servers. Which are called Managed Nodes/Clients.
  - Requirements for Manager Nodes/Clients:
@@ -23,8 +38,8 @@
        sudo su -
     - Create ansadmin user
     ```
-       useradd ansadmin
-       passwd ansadmin
+    useradd ansadmin
+    passwd ansadmin
     ```
     - Provide password to ansadmin
  - Provide root privileges to all ansadmin users on all servers
@@ -33,7 +48,7 @@
  ```
  - update as below in visudo file
     ```
-            ansadmin        ALL=(ALL)       NOPASSWD:  ALL
+    ansadmin        ALL=(ALL)       NOPASSWD:  ALL
     ```
  - Make sure that PasswordAuthentication yes in all servers under /etc/ssh/sshd_config file.
     ```
@@ -42,23 +57,24 @@
     ```
  - After changing PasswordAuthentication to yes in all servers restart the sshd
     ```
-        service sshd restart
+    service sshd restart
     ```
-
-*** Ansible version 2.4 and later can manage earlier operating systems that contain Python 2.5 or higher.
-
-
-
-
-### We can install Ansible in three ways.
- - Using YUM
- - Using pip
- - Using compile file
-
-### Steps to install Ansible on Ubuntu
-```
-    sudo apt update
-    sudo apt install software-properties-common
-    sudo add-apt-repository --yes --update ppa:ansible/ansible
-    sudo apt install ansible
-```
+ - Generate ssh-keys using ssh-keygen command from ansadmin on Ansible Engine
+    ```
+    sudo su ansadmin
+    ssh-keygen
+    cd .ssh/
+    ```
+ - Copy ssh public keys using ssh-copy-id <hostname> from location /home/ansadmin.ssh/ location.
+    ```
+    ssh-copy-id <hostname>
+    ```
+ - Update inventory file(hosts)  with IP/FQDN under /etc/ansible
+    ```
+    cd /etc/ansible
+    vi hosts
+    ```
+ - Now we can test connection from Ansible Engine to Manager Node using:
+    ```
+    ansible all -m ping
+    ```
