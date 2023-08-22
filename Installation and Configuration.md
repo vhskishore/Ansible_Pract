@@ -36,7 +36,14 @@
             ansadmin        ALL=(ALL)       NOPASSWD:  ALL
     ```
  - Make sure that PasswordAuthentication yes in all servers under /etc/ssh/sshd_config file.
-
+    ```
+    nano /etc/ssh/sshd_config
+    PasswordAuthentication yes
+    ```
+ - After changing PasswordAuthentication to yes in all servers restart the sshd
+    ```
+        service sshd restart
+    ```
 
 *** Ansible version 2.4 and later can manage earlier operating systems that contain Python 2.5 or higher.
 
