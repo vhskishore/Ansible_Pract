@@ -31,7 +31,7 @@
  ```
     visudo
  ```
-    - update as below in visudo file
+ - update as below in visudo file
     ```
             ansadmin        ALL=(ALL)       NOPASSWD:  ALL
     ```
