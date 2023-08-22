@@ -21,7 +21,7 @@
     sudo apt install ansible
     ansible --version
 ```
-![Alt text](https://github.com/vhskishore/Ansible_Pract/blob/main/Screenshot%202023-08-22%20at%207.46.19%20PM.png?raw=true)
+![Alt text](https://github.com/vhskishore/Ansible_Pract/blob/main/ansible%20version.png?raw=true)
 
 ### Steps to configure Ansible
  - Launch/select required number of servers. Which are called Managed Nodes/Clients.
