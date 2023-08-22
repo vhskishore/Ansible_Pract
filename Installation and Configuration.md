@@ -22,13 +22,19 @@
     - To create new user enter into root
        sudo su -
     - Create ansadmin user
+    ```
        useradd ansadmin
        passwd ansadmin
+    ```
     - Provide password to ansadmin
  - Provide root privileges to all ansadmin users on all servers
+ ```
     visudo
+```
     - update as below in visudo file
+    ```
         ansadmin        ALL=(ALL)       NOPASSWD:  ALL
+    ```
 
 
 *** Ansible version 2.4 and later can manage earlier operating systems that contain Python 2.5 or higher.
