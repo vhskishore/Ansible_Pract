@@ -21,5 +21,10 @@ ansible db:web_server -m shell -a "free -m"
 ansible -i prod_inventory -m shell -a "uptime"
 ansible -i prod_inventory -m shell -a "free -m"
 ```
-
-- 
+- Module is simply a program designed to execute a task, Based on the required task we have to select required module.
+```
+ansible-doc -l
+```
+```
+ansible-doc <module_name>
+```
