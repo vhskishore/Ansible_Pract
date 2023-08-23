@@ -13,3 +13,7 @@ ansible webservers -m copy -a "src=./host desk=/tmp"
 ```
 ansible db -m copy -a "content = 'hello this is kishore' dest=/tmp/file.txt"
 ```
+- If we re-run above command with different content to same file it will delete existing, To take backup of existing file
+```
+ansible db -m copy -a "content = 'hello this is kishore\n' dest=/tmp/file.txt backup=yes"
+```
