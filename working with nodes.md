@@ -22,9 +22,11 @@ ansible -i prod_inventory -m shell -a "uptime"
 ansible -i prod_inventory -m shell -a "free -m"
 ```
 - Module is simply a program designed to execute a task, Based on the required task we have to select required module.
+- Below command is to list all modules
 ```
 ansible-doc -l
 ```
+- Below command is to read particular module
 ```
 ansible-doc <module_name>
 ```
